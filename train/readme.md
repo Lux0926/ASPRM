@@ -1,6 +1,6 @@
-We publicly released our training scripts to enable replication of our PRM training process on our data.
+## We publicly released our training scripts to enable replication of our PRM training process on our data.
 
-#Example
+### Example
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --module openrlhf.cli.train_prm \
    --save_path ./checkpoint/{your_prm_name} \
