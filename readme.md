@@ -40,7 +40,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --module openrlhf.cli.train_prm \
    --max_len 8192 \
    --zero_stage 2 \
    --learning_rate 5e-6 \
-   --dataset {path_to_asprm_train_dataset} \
+   --dataset {path_to_prm_train_dataset} \
    --input_key query \
    --label_key response \
    --flash_attn \
