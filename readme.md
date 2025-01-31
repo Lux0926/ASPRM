@@ -48,6 +48,6 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --module openrlhf.cli.train_prm \
    --wandb_group prm \
    --placeholder_token " ки" \
 ```
--    We did not use the `-reward_tokens` parameter, as omitting it typically leads to better performance.
+We did not use the `-reward_tokens` parameter, as omitting it typically leads to better performance.
   
 ## Evaluation
