@@ -7,7 +7,7 @@
 ## Environment Setup
 
 ### Train enviroment
-
+  Our PRM training codes based on version 0.4.5 of openrlhf.
 
 ### Eval enviroment
 
