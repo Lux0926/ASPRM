@@ -13,7 +13,11 @@
 
 ## Trarning Code
 In the `train` folder, we have provided the scripts used for training PRM. To replicate our training process, please run the scripts in the `train` directory after setting up the training environment.
-For example, `bash train_ASPRM-M.sh`
 
+### Example
+```bash
+cd train/
+bash train_ASPRM-M.sh
+```
 
 ## Evaluation
