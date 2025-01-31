@@ -1,21 +1,20 @@
 We publicly released our training parameters to enable replication of our PRM training process on our data.
-
 #Example
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --module openrlhf.cli.train_prm \
-   --save_path ./checkpoint/asprm_datamistralv3_modelmistral_bz256_lr1e6_epo1_no_con \
+   --save_path ./checkpoint/{your_prm_name} \
    --save_steps 1000 \
    --logging_steps 10 \
-   --eval_steps 100 \
-   --train_batch_size 256 \
+   --eval_steps 1000 \
+   --train_batch_size 32 \
    --micro_train_batch_size 4 \
-   --pretrain /xxxxxxxxx/models/mistral_V1 \
+   --pretrain {path_to_your_basemodel} \
    --bf16 \
    --max_epochs 1 \
    --max_len 8192 \
    --zero_stage 2 \
-   --learning_rate 1e-6 \
-   --dataset /xxxxxxxxx/data/mistral_query_responsev3.jsonl \
+   --learning_rate 5e-6 \
+   --dataset {path_to_asprm_train_dataset} \
    --input_key query \
    --label_key response \
    --flash_attn \
