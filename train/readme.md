@@ -1,4 +1,5 @@
-We publicly released our training parameters to enable replication of our PRM training process on our data.
+We publicly released our training scripts to enable replication of our PRM training process on our data.
+
 #Example
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --module openrlhf.cli.train_prm \
@@ -22,3 +23,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --module openrlhf.cli.train_prm \
    --wandb_group prm \
    --placeholder_token " ки" \
 ```
+
+Note:
+1. Our training scripts are based on OpenRLHF version 0.4.5. Before running the training script, please execute `pip install openrlhf==0.4.5`.
+2. We did not use the `-reward_tokens` parameter, as omitting it typically leads to better performance
