@@ -12,10 +12,18 @@
 
 First, use the command `which conda` to check the local installation path of Conda ( `{conda_path}` ).
   ```bash
-
+  huggingface-cli download Lux0926/ASPRM-Training-Evaluation-Environment --local-dir {your_save_path}
+  mkdir /{conda_path}/asprm_train
+  cd {your_save_path}
+  tar -xzvf asprm_train.tar.gz -C /{conda_path}/asprm_train
   ```
 
 ### Eval enviroment
+  ```bash
+  mkdir /{conda_path}/asprm_eval
+  cd {your_save_path}
+  tar -xzvf asprm_eval.tar.gz -C /{conda_path}/asprm_eval
+  ```
 
 ## Trarning Code
 In the `train` folder, we have provided the scripts used for training PRM. To replicate our training process, please run the scripts in the `train` directory after setting up the training environment.
