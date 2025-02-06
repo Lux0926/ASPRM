@@ -27,11 +27,7 @@ First, use the command `which conda` to check the local installation path of Con
 
 ## Trarning Code
 
-### SFT
-
-### PRM
-
-In the `train` folder, we have provided the scripts used for training PRM. To replicate our training process, please run the scripts in the `train` directory after setting up the training environment.
+In the `train` folder, we have provided the scripts used for training PRM. To replicate our training process, please run the scripts in the `train` directory after setting up the training environment. We use the [LeetCodeDataset](https://github.com/newfacade/LeetCodeDataset) to perform supervised fine-tuning (SFT) on deepseek-coder-6.7b-base.
 
 #### Example
 
@@ -63,7 +59,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --module openrlhf.cli.train_prm \
    --wandb_group prm \
    --placeholder_token " ки" \
 ```
-We did not use the `-reward_tokens` parameter, as omitting it typically leads to better performance.
+We did not use the `-reward_tokens` parameter, as omitting it typically leads to better performance. 
   
 ## Evaluation
 
