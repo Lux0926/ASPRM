@@ -10,10 +10,9 @@
   
 ### Train enviroment
 
+First, use the command `which conda` to check the local installation path of Conda(`{conda_path}`).
   ```bash
-  conda create -n asprm_train python=3.10.0
-  conda activate asprm_train
-  pip install openrlhf==0.4.5
+  which conda
   ```
 
 ### Eval enviroment
