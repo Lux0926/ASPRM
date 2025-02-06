@@ -32,6 +32,7 @@ In the `train` folder, we have provided the scripts used for training PRM. To re
 
   ```bash
   cd train/
+  conda activate asprm_train
   bash train_ASPRM-M.sh
   ```
 #### Script 
