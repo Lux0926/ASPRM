@@ -10,7 +10,7 @@
   
 ### Train enviroment
 
-First, use the command `which conda` to check the local installation path of Conda `{conda_path}`.
+First, use the command `which conda` to check the local installation path of Conda ( `{conda_path}` ).
   ```bash
 
   ```
