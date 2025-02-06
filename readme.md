@@ -62,4 +62,4 @@ We did not use the `-reward_tokens` parameter, as omitting it typically leads to
   
 ## Evaluation
 
-Please goto the `evaluation` folder.
+Please goto the `evaluation/` folder.
