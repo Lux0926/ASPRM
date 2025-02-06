@@ -61,3 +61,5 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --module openrlhf.cli.train_prm \
 We did not use the `-reward_tokens` parameter, as omitting it typically leads to better performance.
   
 ## Evaluation
+
+Please goto the `evaluation` folder.
