@@ -6,10 +6,10 @@
   
 ## Environment Setup
   
-  We built the training and evaluation environments based on OpenRLHF and VLLM. We packaged our conda environment using conda-pack and uploaded it to HuggingFace. You can use the following command to build the training and evaluation environments.
+  We built the training and evaluation environments based on OpenRLHF and VLLM. We packaged our conda environment using conda-pack and uploaded it to HuggingFace. You can use the following bash command to build the training and evaluation environments.
   
 ### Train enviroment
-  Our PRM training scripts based on version 0.4.5 of openrlhf. If you want to use our training scripts, please run the following code to create the conda environment.
+
   ```bash
   conda create -n asprm_train python=3.10.0
   conda activate asprm_train
