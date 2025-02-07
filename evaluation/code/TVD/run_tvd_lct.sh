@@ -1,6 +1,6 @@
 #Example
 
-(python bon_infer_lct.py \
+(python tvd_lct.py \
     --temperature 0.0 \
     --bon_size 8 \
     --confidence_threshold 28 \
