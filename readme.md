@@ -75,7 +75,7 @@ To reproduce the BON evaluation results, please go to the `evaluation/math/BON` 
 ```
 In the `run_all_eval_server.sh`, you can specify the parameters as shown below.
 ```bash
-  bash {run_eval_server_llama.sh/run_eval_server_mistral.sh/run_eval_server_er_prm.sh/run_eval_server_shepherd.sh} {cuda_device_number} {prm_path} {prm_server_port} &
+  bash {run_eval_server_llama.sh/run_eval_server_mistral.sh/run_eval_server_er_prm.sh/run_eval_server_shepherd.sh} {CUDA_VISIBLE_DEVICES} {prm_path} {prm_server_port} &
 ```
 
 
