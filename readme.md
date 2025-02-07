@@ -166,4 +166,5 @@ If you want to evaluate performance on the LCT dataset, run `run_tvd_lct.sh`.
 
 wait
 ```
+Upon completion, all TVD evaluation results will be saved.
 #### Get Evaluation Scores
