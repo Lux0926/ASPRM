@@ -168,3 +168,11 @@ wait
 ```
 Upon completion, all TVD evaluation results will be saved.
 #### Get Evaluation Scores
+Both BON and TVD evaluations will save the evaluation result files. To obtain the final scores for the evaluation on the LCT dataset, please refer to the following instructions.
+```bash
+git clone https://github.com/Lux0926/ASPRM_LCT_Eval.git
+cd ASPRM_LCT_Eval/
+```
+To obtain the BON evaluation scores, run `test_leetcode_eval.sh`. To obtain the TVD evaluation scores, run `test_leetcode_tvd.sh`. Before running these two scripts, simply modify the `--input_file` parameter to specify the file for which you want to obtain the scores. The `--output_file` can be the same as the `--input_file`. No other parameters need to be modified.
+
+
