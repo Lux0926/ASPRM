@@ -109,9 +109,7 @@ python tvd.py \
     --input_data_path {GSM8k_test_idx.jsonl/GSM_symbolic_test_idx.jsonl/math500_test_with_idx.jsonl} \
     --output_data_path {prm_name}_con{confidence_threshold}_{task_model_name}.jsonl \
     --task_port {task_model_server_port} \
-    --reward_port {prm_model_server_port}&
-
-wait
+    --reward_port {prm_model_server_port} &
 ```
 ### Code
 
