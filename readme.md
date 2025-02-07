@@ -85,7 +85,18 @@ python eval.py --benchmark_type {llama_data/mistral_data} --bon_size {4/8/16/32/
 The complete BON evaluation dataset can be found [here](https://huggingface.co/datasets/Lux0926/ASPRM-BON-Evaluation-Dataset-Math), and the evaluation results will be saved in `math_result.jsonl`. Note that in the BON evaluation dataset, data with the `with_step` suffix is used to evaluate the performance of Shepherd, while data with the `remove_enter` suffix is used to evaluate the performance of ER-PRM.
 #### TVD
 To reproduce the TVD evaluation results, please go to the `evaluation/math/TVD` folder.
+First, run the `run_all_server.sh` script to start the `task_server` and `reward_server`.
+```bash
+  bash run_all_server.sh
+```
+You can specify the following parameters.
+```bash
+# Task model
+bash run_task_server.sh {CUDA_VISIBLE_DEVICES} {task_model_path} {task_model_server_port} {task_model_path} &
 
+# PRM model
+bash {run_reward_server_mistral.sh/run_reward_server_llama.sh/run_reward_server_er_prm.sh/run_reward_server_shepherd.sh} {CUDA_VISIBLE_DEVICES} {prm_model_path} {prm_model_server_port} &
+```
 ### Code
 
 #### BON
