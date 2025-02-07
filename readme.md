@@ -124,6 +124,15 @@ bash run_eval_server_ds.sh {CUDA_VISIBLE_DEVICES} {prm/orm_path} {prm_server_por
 ```
 Also after starting the PRM server, run the `run_eval_code.sh` script to initiate the BON evaluation.
 ```bash
-python {eval_lct.py/eval_lcb.py} --benchmark_type ds_data --bon_size {4/8/16/32/64} --input_data_path {BON_Evaluation_Data_Path} --reward_port {running_prm_server_port} --eval_type {confidence/hard/random} --dataset_type {leetCoTE/LiveCodeBench} --prm_model_path {prm_model_path} &
+python {eval_lct.py/eval_lcb.py} --benchmark_type {ds_data/ds_data_orm} --bon_size {4/8/16/32/64} --input_data_path {BON_Evaluation_Data_Path} --reward_port {running_prm_server_port} --eval_type {confidence/hard/random} --dataset_type {leetCoTE/LiveCodeBench} --prm_model_path {prm_model_path} &
 ```
+Upon completion, all BON evaluation results will be saved.
 #### TVD
+Similarly,run the `run_all_server.sh` script to start the `task_server` and `reward_server`.
+```bash
+#Example
+bash run_task_server.sh {CUDA_VISIBLE_DEVICES} {task_model_path} {task_model_server_port} {task_model_path} &
+
+bash run_reward_server_ds.sh {CUDA_VISIBLE_DEVICES} {prm_model_path} {prm_model_server_port} &
+```
+#### Get Evaluation Scores
