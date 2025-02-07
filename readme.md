@@ -113,6 +113,8 @@ python tvd.py \
 
 wait
 ```
+Upon completion of the run, use `get_score.ipynb` to retrieve the final score for the TVD evaluation.
+
 ### Code
 
 #### BON
