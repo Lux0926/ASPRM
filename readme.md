@@ -68,11 +68,12 @@ Please goto the `evaluation/` folder.
 ### Math
 
 To reproduce the BON evaluation results, please go to the `evaluation/math/BON` folder. First, use the `run_all_eval_server.sh` script to specify the PRM and start the PRM server.
+
 ```bash
   cd evaluation/math/BON
   conda activate asprm_eval
   bash run_all_eval_server.sh
-```bash
+```
 
 
 
