@@ -93,7 +93,6 @@ You can specify the following parameters.
 ```bash
 # Task model
 bash run_task_server.sh {CUDA_VISIBLE_DEVICES} {task_model_path} {task_model_server_port} {task_model_path} &
-
 # PRM model
 bash {run_reward_server_mistral.sh/run_reward_server_llama.sh/run_reward_server_er_prm.sh/run_reward_server_shepherd.sh} {CUDA_VISIBLE_DEVICES} {prm_model_path} {prm_model_server_port} &
 ```
@@ -130,9 +129,9 @@ Upon completion, all BON evaluation results will be saved.
 #### TVD
 Similarly,run the `run_all_server.sh` script to start the `task_server` and `reward_server`.
 ```bash
-
+# Task model
 bash run_task_server.sh {CUDA_VISIBLE_DEVICES} {task_model_path} {task_model_server_port} {task_model_path} &
-
+# PRM model
 bash run_reward_server_ds.sh {CUDA_VISIBLE_DEVICES} {prm_model_path} {prm_model_server_port} &
 ```
 Then, to evaluate performance on the LCB dataset, run `run_tvd_lcb.sh`.
