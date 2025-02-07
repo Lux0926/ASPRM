@@ -67,4 +67,8 @@ Please goto the `evaluation/` folder.
 
 ### Math
 
+To reproduce the BON evaluation results, please go to the `evaluation/math/BON` folder.
+
+
+
 ### Code
