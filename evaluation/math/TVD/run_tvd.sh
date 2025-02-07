@@ -1,4 +1,4 @@
-python bon_infer.py \
+python tvd.py \
     --temperature 0.0 \
     --bon_size 8 \
     --confidence_threshold 55 \
