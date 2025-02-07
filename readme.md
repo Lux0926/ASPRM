@@ -118,6 +118,12 @@ Upon completion of the run, use `get_score.ipynb` to retrieve the final score fo
 ### Code
 The evaluation of Code is similar to that of Math, but all final scores are obtained offline.
 #### BON
-The complete BON evaluation dataset can be found [here](https://huggingface.co/datasets/Lux0926/ASPRM-BON-Evaluation-Dataset-Code).
-
+The complete BON evaluation dataset can be found [here](https://huggingface.co/datasets/Lux0926/ASPRM-BON-Evaluation-Dataset-Code). First, similarly use the `run_all_eval_server.sh` script to specify the PRM and start the PRM server.
+```bash
+bash run_eval_server_ds.sh {CUDA_VISIBLE_DEVICES} {prm/orm_path} {prm_server_port} &
+```
+Also after starting the PRM server, run the `run_eval_code.sh` script to initiate the BON evaluation.
+```bash
+python {eval_lct.py/eval_lcb.py} --benchmark_type ds_data --bon_size {4/8/16/32/64} --input_data_path {BON_Evaluation_Data_Path} --reward_port {running_prm_server_port} --eval_type {confidence/hard/random} --dataset_type {leetCoTE/LiveCodeBench} --prm_model_path {prm_model_path} &
+```
 #### TVD
