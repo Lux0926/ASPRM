@@ -119,10 +119,12 @@ The evaluation of Code is similar to that of Math, but all final scores are obta
 #### BON
 The complete BON evaluation dataset can be found [here](https://huggingface.co/datasets/Lux0926/ASPRM-BON-Evaluation-Dataset-Code). First, similarly use the `run_all_eval_server.sh` script to specify the PRM and start the PRM server.
 ```bash
+# run_all_eval_server.sh
 bash run_eval_server_ds.sh {CUDA_VISIBLE_DEVICES} {prm/orm_path} {prm_server_port} &
 ```
 Also after starting the PRM server, run the `run_eval_code.sh` script to initiate the BON evaluation.
 ```bash
+# run_eval_code.sh
 python {eval_lct.py/eval_lcb.py} --benchmark_type {ds_data/ds_data_orm} --bon_size {4/8/16/32/64} --input_data_path {BON_Evaluation_Data_Path} --reward_port {running_prm_server_port} --eval_type {confidence/hard/random} --dataset_type {leetCoTE/LiveCodeBench} --prm_model_path {prm_model_path} &
 ```
 Upon completion, all BON evaluation results will be saved.
@@ -136,7 +138,7 @@ bash run_reward_server_ds.sh {CUDA_VISIBLE_DEVICES} {prm_model_path} {prm_model_
 ```
 Then, to evaluate performance on the LCB dataset, run `run_tvd_lcb.sh`.
 ```bash
-
+# run_tvd_lcb.sh
 (python tvd_lcb.py \
     --temperature {temperature} \
     --bon_size {bon_size：4/8/...} \
@@ -152,7 +154,7 @@ wait
 ```
 If you want to evaluate performance on the LCT dataset, run `run_tvd_lct.sh`.
 ```bash
-
+# run_tvd_lct.sh
 (python tvd_lct.py \
     --temperature {temperature} \
     --bon_size {bon_size：4/8/...} \
@@ -174,7 +176,53 @@ git clone https://github.com/Lux0926/ASPRM_LCT_Eval.git
 cd ASPRM_LCT_Eval/
 ```
 To obtain the BON evaluation scores, run `test_leetcode_eval.sh`. To obtain the TVD evaluation scores, run `test_leetcode_tvd.sh`. 
+```bash
+# test_leetcode_eval.sh
+python src/main_eval.py  --model_name "model" \
+                --task "LeetCodeTest" \
+                --save "sft_old_test" \
+                --num_gpus 4 \
+                --num_samples 1 \
+                --k 1 \
+                --temperature 0.0 \
+                --num_workers 32 \
+                --batch_size 200 \
+                --max_tokens 8192 \
+                --model_type "Chat" \
+                --prompt_type "Instruction" \
+                --prompt_prefix "" \
+                --prompt_suffix "" \
+                --trust_remote_code \
+                --input_file {your_evaluation_result_path} \
+                --output_file {your_evaluation_result_name}
+```
+
+```bash
+# test_leetcode_tvd.sh
+python src/main_tvd.py  --model_name "model" \
+                --task "LeetCodeTest" \
+                --save "sft_old_test" \
+                --num_gpus 4 \
+                --num_samples 1 \
+                --k 1 \
+                --temperature 0.0 \
+                --num_workers 32 \
+                --batch_size 200 \
+                --max_tokens 8192 \
+                --model_type "Chat" \
+                --prompt_type "Instruction" \
+                --prompt_prefix "" \
+                --prompt_suffix "" \
+                --trust_remote_code \
+                --input_file {your_evaluation_result_path} \
+                --output_file {your_evaluation_result_name}
+```
 
 Before running these two scripts, simply modify the `--input_file` parameter to specify the file for which you want to obtain the scores. The `--output_file` can be the same as the `--input_file`. No other parameters need to be modified.
 
+To obtain the final scores for the evaluation on the LCB dataset, please follow the official [LiveCodeBench](https://github.com/LiveCodeBench/LiveCodeBench) GitHub repository. Refer to the "Custom Evaluation" section of the repository.
+```bash
+python -m lcb_runner.runner.custom_evaluator --custom_output_file {your_evaluation_result_path} --release_version release_v4 &
+```
+However, please remember that before doing so, you need to use `process_lcb_result.ipynb` to convert the evaluation results into the format required by LiveCodeBench.
 
