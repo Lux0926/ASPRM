@@ -130,9 +130,41 @@ Upon completion, all BON evaluation results will be saved.
 #### TVD
 Similarly,run the `run_all_server.sh` script to start the `task_server` and `reward_server`.
 ```bash
-#Example
+
 bash run_task_server.sh {CUDA_VISIBLE_DEVICES} {task_model_path} {task_model_server_port} {task_model_path} &
 
 bash run_reward_server_ds.sh {CUDA_VISIBLE_DEVICES} {prm_model_path} {prm_model_server_port} &
+```
+Then, to evaluate performance on the LCB dataset, run `run_tvd_lcb.sh`.
+```bash
+
+(python tvd_lcb.py \
+    --temperature {temperature} \
+    --bon_size {bon_size：4/8/...} \
+    --confidence_threshold {confidence_threshold:0-100} \
+    --task_model_path {task_model_path} \
+    --reward_model_path {prm_model_path} \
+    --input_data_path livecodebench_test_idx.jsonl \
+    --output_data_path prm_con{confidence_threshold}_lcb.jsonl \
+    --task_port {task_model_server_port} \
+    --reward_port {prm_model_server_port} ) &
+
+wait
+```
+If you want to evaluate performance on the LCT dataset, run `run_tvd_lct.sh`.
+```bash
+
+(python tvd_lct.py \
+    --temperature {temperature} \
+    --bon_size {bon_size：4/8/...} \
+    --confidence_threshold {confidence_threshold:0-100} \
+    --task_model_path {task_model_path} \
+    --reward_model_path {prm_model_path} \
+    --input_data_path leetCoTE_test_idx.jsonl \
+    --output_data_path prm_con{confidence_threshold}_lcb.jsonl \
+    --task_port {task_model_server_port} \
+    --reward_port {prm_model_server_port} ) &
+
+wait
 ```
 #### Get Evaluation Scores
