@@ -116,7 +116,7 @@ wait
 Upon completion of the run, use `get_score.ipynb` to retrieve the final score for the TVD evaluation.
 
 ### Code
-
+The evaluation of Code is similar to that of Math, but all final scores are obtained offline.
 #### BON
 
 #### TVD
