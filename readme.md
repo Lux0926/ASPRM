@@ -226,3 +226,4 @@ python -m lcb_runner.runner.custom_evaluator --custom_output_file {your_evaluati
 ```
 However, please remember that before doing so, you need to use `process_lcb_result.ipynb` to convert the evaluation results into the format required by LiveCodeBench.
 
+## Citation
