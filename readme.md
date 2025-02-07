@@ -66,7 +66,7 @@ We did not use the `-reward_tokens` parameter, as omitting it typically leads to
 Please goto the `evaluation/` folder.
 
 ### Math
-### BON
+#### BON
 To reproduce the BON evaluation results, please go to the `evaluation/math/BON` folder. First, use the `run_all_eval_server.sh` script to specify the PRM and start the PRM server.
 ```bash
   cd evaluation/math/BON
