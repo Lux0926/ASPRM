@@ -78,7 +78,8 @@ In the `run_all_eval_server.sh`, you can specify the parameters as shown below.
   bash {run_eval_server_llama.sh/run_eval_server_mistral.sh/run_eval_server_er_prm.sh/run_eval_server_shepherd.sh} {CUDA_VISIBLE_DEVICES} {prm_path} {prm_server_port} &
 ```
 
-
-
-
+After starting the PRM server, run the `run_eval_code.sh` script to initiate the BON evaluation. You can specify the following parameters within it.
+```bash
+python eval.py --benchmark_type {llama_data/mistral_data} --bon_size {4/8/16/32/64} --input_data_path {BON_Evaluation_Data_Path}  --reward_port {running_prm_server_port} --eval_type {confidence/hard/random} --dataset_type {gsm8k/math_500} --prm_model_path {prm_model_path} &
+```
 ### Code
