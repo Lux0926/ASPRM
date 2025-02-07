@@ -97,6 +97,22 @@ bash run_task_server.sh {CUDA_VISIBLE_DEVICES} {task_model_path} {task_model_ser
 # PRM model
 bash {run_reward_server_mistral.sh/run_reward_server_llama.sh/run_reward_server_er_prm.sh/run_reward_server_shepherd.sh} {CUDA_VISIBLE_DEVICES} {prm_model_path} {prm_model_server_port} &
 ```
+Then, run the `run_tvd.sh` script to initiate the TVD evaluation.
+
+```bash
+python tvd.py \
+    --temperature {temperature} \
+    --bon_size {bon_size：4/8/...} \
+    --confidence_threshold {confidence_threshold:0-100} \
+    --task_model_path {task_model_path}  \
+    --reward_model_path {prm_model_path} \
+    --input_data_path {GSM8k_test_idx.jsonl/GSM_symbolic_test_idx.jsonl/math500_test_with_idx.jsonl} \
+    --output_data_path {prm_name}_con{confidence_threshold}_{task_model_name}.jsonl \
+    --task_port {task_model_server_port} \
+    --reward_port {prm_model_server_port}&
+
+wait
+```
 ### Code
 
 #### BON
