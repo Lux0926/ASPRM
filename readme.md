@@ -110,6 +110,8 @@ python tvd.py \
     --output_data_path {prm_name}_con{confidence_threshold}_{task_model_name}.jsonl \
     --task_port {task_model_server_port} \
     --reward_port {prm_model_server_port} &
+
+wait
 ```
 ### Code
 
