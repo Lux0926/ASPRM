@@ -2,7 +2,7 @@
 
   - [2025/1/31]  We have published our paper here.
   
-  - [2025/1/31]  We have released our model and data [here](https://huggingface.co/Lux0926).
+  - [2025/1/31]  We have released our model and data here.
   
 ## Environment Setup
   
@@ -12,7 +12,7 @@
 
 First, use the command `which conda` to check the local installation path of Conda ( `{conda_path}` ).
   ```bash
-  huggingface-cli download Lux0926/ASPRM-Training-Evaluation-Environment --local-dir {your_save_path}
+  huggingface-cli download {Training-Evaluation-Environment} --local-dir {your_save_path}
   mkdir /{conda_path}/asprm_train
   cd {your_save_path}
   tar -xzvf asprm_train.tar.gz -C /{conda_path}/asprm_train
@@ -27,7 +27,7 @@ First, use the command `which conda` to check the local installation path of Con
 
 ## Trarning Code
 
-In the `train` folder, we have provided the scripts used for training PRM. To replicate our training process, please run the scripts in the `train` directory after setting up the training environment. We use the [LeetCodeDataset](https://github.com/newfacade/LeetCodeDataset) to perform supervised fine-tuning (SFT) on deepseek-coder-6.7b-base.
+In the `train` folder, we have provided the scripts used for training PRM. To replicate our training process, please run the scripts in the `train` directory after setting up the training environment. We use the LeetCodeDataset to perform supervised fine-tuning (SFT) on deepseek-coder-6.7b-base.
 
 #### Example
 
@@ -82,7 +82,7 @@ After starting the PRM server, run the `run_eval_code.sh` script to initiate the
 ```bash
 python eval.py --benchmark_type {llama_data/mistral_data} --bon_size {4/8/16/32/64} --input_data_path {BON_Evaluation_Data_Path}  --reward_port {running_prm_server_port} --eval_type {confidence/hard/random} --dataset_type {gsm8k/math_500} --prm_model_path {prm_model_path} &
 ```
-The complete BON evaluation dataset can be found [here](https://huggingface.co/datasets/Lux0926/ASPRM-BON-Evaluation-Dataset-Math), and the evaluation results will be saved in `math_result.jsonl`. Note that in the BON evaluation dataset, data with the `with_step` suffix is used to evaluate the performance of Shepherd, while data with the `remove_enter` suffix is used to evaluate the performance of ER-PRM.
+The complete BON evaluation dataset can be found here, and the evaluation results will be saved in `math_result.jsonl`. Note that in the BON evaluation dataset, data with the `with_step` suffix is used to evaluate the performance of Shepherd, while data with the `remove_enter` suffix is used to evaluate the performance of ER-PRM.
 #### TVD
 To reproduce the TVD evaluation results, please go to the `evaluation/math/TVD` folder.
 First, run the `run_all_server.sh` script to start the `task_server` and `reward_server`.
@@ -117,7 +117,7 @@ Upon completion of the run, use `get_score.ipynb` to retrieve the final score fo
 ### Code
 The evaluation of Code is similar to that of Math, but all final scores are obtained offline.
 #### BON
-The complete BON evaluation dataset can be found [here](https://huggingface.co/datasets/Lux0926/ASPRM-BON-Evaluation-Dataset-Code). First, similarly use the `run_all_eval_server.sh` script to specify the PRM and start the PRM server.
+The complete BON evaluation dataset can be found here. First, similarly use the `run_all_eval_server.sh` script to specify the PRM and start the PRM server.
 ```bash
 # run_all_eval_server.sh
 bash run_eval_server_ds.sh {CUDA_VISIBLE_DEVICES} {prm/orm_path} {prm_server_port} &
@@ -172,8 +172,8 @@ Upon completion, all TVD evaluation results will be saved.
 #### Get Evaluation Scores
 Both BON and TVD evaluations will save the evaluation result files. To obtain the final scores for the evaluation on the LCT dataset, please refer to the following instructions.
 ```bash
-git clone https://github.com/Lux0926/ASPRM_LCT_Eval.git
-cd ASPRM_LCT_Eval/
+git clone {LCT_Eval}
+cd {LCT_Eval}/
 ```
 To obtain the BON evaluation scores, run `test_leetcode_eval.sh`. To obtain the TVD evaluation scores, run `test_leetcode_tvd.sh`. 
 ```bash
@@ -220,7 +220,7 @@ python src/main_tvd.py  --model_name "model" \
 
 Before running these two scripts, simply modify the `--input_file` parameter to specify the file for which you want to obtain the scores. The `--output_file` can be the same as the `--input_file`. No other parameters need to be modified.
 
-To obtain the final scores for the evaluation on the LCB dataset, please follow the official [LiveCodeBench](https://github.com/LiveCodeBench/LiveCodeBench) GitHub repository. Refer to the "Custom Evaluation" section of the repository.
+To obtain the final scores for the evaluation on the LCB dataset, please follow the official LiveCodeBench GitHub repository. Refer to the "Custom Evaluation" section of the repository.
 ```bash
 python -m lcb_runner.runner.custom_evaluator --custom_output_file {your_evaluation_result_path} --release_version release_v4 &
 ```
