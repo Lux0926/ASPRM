@@ -1,5 +1,5 @@
 CUDA_VISIBLE_DEVICES=0,1,2,3 deepspeed --module openrlhf.cli.train_prm \
-   --save_path ./checkpoint/asprm_datamistralv3_modelmistral_bz256_lr1e6_epo1_no_con \
+   --save_path ./checkpoint/asprm_m_bz256_lr1e6_epo1_no_con \
    --save_steps 1000 \
    --logging_steps 10 \
    --eval_steps 100 \
