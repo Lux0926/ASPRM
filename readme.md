@@ -228,3 +228,15 @@ However, please remember that before doing so, you need to use `process_lcb_resu
 
 ## Citation
 If you find anything useful for your research, please consider citing.
+
+```tex
+@misc{liu2025adaptivestepautomaticallydividingreasoning,
+      title={AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence}, 
+      author={Yuliang Liu and Junjie Lu and Zhaoling Chen and Chaofeng Qu and Jason Klein Liu and Chonghan Liu and Zefan Cai and Yunhui Xia and Li Zhao and Jiang Bian and Chuheng Zhang and Wei Shen and Zhouhan Lin},
+      year={2025},
+      eprint={2502.13943},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2502.13943}, 
+}
+```
