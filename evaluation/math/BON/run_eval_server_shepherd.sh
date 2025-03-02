@@ -8,5 +8,5 @@ CUDA_VISIBLE_DEVICES=$1 python -m vllm.entrypoints.openai.api_server \
     --enforce-eager \
     --task embedding \
     --pooling-type STEP \
-	--pooling-step-tag-id 12902 \
-	--pooling-returned-token-ids 648 387
+    --pooling-step-tag-id 12902 \
+    --pooling-returned-token-ids 648 387
